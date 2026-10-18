@@ -4,11 +4,12 @@
   "description": "Yashvi Entertainments - Official Navratri Passes & Events",
   "start_url": "./index.html",
   "scope": "./",
+  "id": "./index.html",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#1b0213",
   "orientation": "portrait",
-  "id": "yashvi-pwa",
   "prefer_related_applications": false,
   "categories": ["entertainment", "events"],
   "icons": [
@@ -36,5 +37,15 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "launch-screen.png",
+      "sizes": "576x1024",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "YASHVI Navratri Passes"
+    }
   ]
 }
+

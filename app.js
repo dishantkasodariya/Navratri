@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deferredPrompt = null;
         hideInstallPrompt();
       } else {
-        showToast('Tap browser menu (⋮) -> "Install app" or "Add to Home screen"');
+        showToast('In Chrome menu (⋮), tap "Install app" for clean icon');
       }
     });
   }
