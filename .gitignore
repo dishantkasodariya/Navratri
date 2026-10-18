@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+slice_assets.py
+header_check.png
+check_card_header_current.png
+qr_section_crop.png
+ticket_screen_qr_area.png
