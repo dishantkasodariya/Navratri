@@ -1,4 +1,4 @@
-const CACHE_NAME = 'yashvi-pwa-v12';
+const CACHE_NAME = 'yashvi-pwa-v13';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -8,6 +8,8 @@ const ASSETS_TO_CACHE = [
   './icon.png',
   './icon-192.png',
   './icon-512.png',
+  './icon-maskable-192.png',
+  './icon-maskable-512.png',
   './apple-touch-icon.png',
   './logo.png',
   './launch-screen.png',
