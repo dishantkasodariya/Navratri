@@ -3,501 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>YASHVI</title>
+  <title>404 Not Found</title>
   
-  <!-- Web App Manifest -->
   <link rel="manifest" href="manifest.json">
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/png" href="icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  
-  <!-- iOS Safari PWA Meta Tags -->
+  <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="YASHVI">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   
-  <!-- Theme Color for Android / Chrome -->
-  <meta name="theme-color" content="#1b0213">
-  <meta name="msapplication-TileColor" content="#1b0213">
-  <meta name="msapplication-TileImage" content="icon-512.png">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      color: #333333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 56px;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .divider {
+      width: 48px;
+      height: 2px;
+      background-color: #e2e8f0;
+      margin: 18px auto;
+    }
+    p.lead {
+      font-size: 16px;
+      color: #4a5568;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    p.sub {
+      font-size: 13px;
+      color: #a0aec0;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Launch Screen (Displays for 2.5s on app start) -->
-  <div id="splash-screen" class="splash-screen" aria-label="Launch Screen">
-    <img src="launch-screen.png" alt="Yashvi Entertainments Launch Screen" class="splash-img">
+  <div class="container">
+    <h1>404 Not Found</h1>
+    <div class="divider"></div>
+    <p class="lead">The requested URL was not found on this server.</p>
+    <p class="sub">404 Error: Resource is currently unavailable or has been removed.</p>
   </div>
-
-  <!-- Main Mobile App Shell -->
-  <div id="app" class="app-container">
-    
-    <!-- ==============================================
-         1. HOME SCREEN VIEW
-         ============================================== -->
-    <div id="home-view" class="app-view active">
-      
-      <!-- Top Header with Interactive Search Bar -->
-      <header class="app-header">
-        <div class="search-bar-row">
-          <div class="search-pill" id="search-pill-container">
-            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input 
-              type="text" 
-              id="search-input" 
-              class="search-input" 
-              placeholder="Search for Location" 
-              autocomplete="off" 
-              spellcheck="false"
-              aria-label="Search for Location"
-            >
-            <button type="button" id="clear-search-btn" class="clear-btn" aria-label="Clear search" style="display: none;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Profile Button (Navigates to My Account) -->
-          <button type="button" class="profile-btn" id="open-account-btn" aria-label="Open My Account">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Search Suggestions Dropdown -->
-        <div class="search-dropdown" id="search-dropdown" style="display: none;">
-          <div class="dropdown-header">POPULAR LOCATIONS & VENUES</div>
-          <div class="dropdown-item" data-search="Vesu">
-            <span class="icon">📍</span>
-            <div class="item-text">
-              <strong>Vesu Canal Road, Abhva, Surat</strong>
-              <small>Yashvi AC Dome • Purvastic Navratri 2025</small>
-            </div>
-          </div>
-          <div class="dropdown-item" data-search="C.B. Patel Cricket Stadium">
-            <span class="icon">📍</span>
-            <div class="item-text">
-              <strong>Besides C.B. Patel Cricket Stadium</strong>
-              <small>Vesu Canal Road, Abhva, Surat</small>
-            </div>
-          </div>
-          <div class="dropdown-item" data-search="Surat">
-            <span class="icon">📍</span>
-            <div class="item-text">
-              <strong>All Events in Surat</strong>
-              <small>Yashvi AC Dome & Surat Indoor Stadium</small>
-            </div>
-          </div>
-          <div class="dropdown-item" data-search="Stage Awaits The Queen">
-            <span class="icon">👑</span>
-            <div class="item-text">
-              <strong>Stage Awaits The Queen</strong>
-              <small>Surat Indoor Stadium • Dandiya Raas Grand Finale</small>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Scrollable Home Content Area (Touching anywhere opens the Ticket screen) -->
-      <main class="app-scroll-content" id="home-main-touch-area">
-        
-        <!-- Search Feedback Bar -->
-        <div id="search-feedback" class="search-feedback" style="display: none;">
-          <span id="feedback-text">Showing events matching "<strong id="search-keyword"></strong>"</span>
-          <button id="reset-search-link" class="reset-link">Clear</button>
-        </div>
-
-        <!-- Main Featured Hero Event Card -->
-        <section class="featured-card-wrapper" id="featured-event-card">
-          <div class="featured-image-container" id="hero-card-container">
-            <img src="hero-content.png" alt="Purvastic Navratri 2025 at Yashvi AC Dome" class="hero-image" id="hero-banner-img">
-            
-            <!-- Pulsing Live Dot over orange circle on Ongoing Event badge -->
-            <div class="live-pulse-anchor" id="ongoing-badge-trigger" role="button" tabindex="0" title="Ongoing Event - Tap for Ticket">
-              <span class="pulsing-dot"></span>
-            </div>
-
-            <!-- Full Card Tap Overlay to open Ticket screen -->
-            <button class="hero-tap-overlay" id="hero-ticket-btn" aria-label="Open Ticket Screen for Yashvi Navratri"></button>
-          </div>
-        </section>
-
-        <!-- Sponsors Section -->
-        <section class="sponsors-section" id="sponsors-section">
-          <div class="sponsors-container">
-            <img src="sponsors-full.png" alt="Riya Jewellery, Sosyo, Cordelia Cruises" class="sponsors-img" id="sponsors-img">
-          </div>
-        </section>
-
-        <!-- Upcoming Events Header -->
-        <section class="upcoming-section" id="upcoming-events-section">
-          <div class="upcoming-header">
-            <span class="orange-divider"></span>
-            <h2 class="upcoming-title">Upcoming Events</h2>
-            <span class="orange-divider"></span>
-          </div>
-
-          <!-- Upcoming Event Card -->
-          <div class="event-card upcoming-queen-card" id="queen-event-card">
-            <div class="card-media">
-              <div class="card-badge">Grand Finale</div>
-              <div class="card-glow-bg"></div>
-              <div class="queen-text-overlay">
-                <span class="queen-subtitle">STAGE AWAITS THE QUEEN</span>
-                <h3 class="queen-title">DANDIYA RAAS 2025</h3>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="card-info-row">
-                <span class="event-date">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-                  21 - 24 October 2025
-                </span>
-                <span class="event-time">8:00 PM Onwards</span>
-              </div>
-              <div class="event-location-row">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>Surat Indoor Stadium, Athwa Lines, Surat</span>
-              </div>
-              <div class="card-action-row">
-                <button class="book-pass-btn" id="queen-pass-btn">View Event Ticket</button>
-              </div>
-            </div>
-          </div>
-
-        </section>
-
-      </main>
-
-    </div>
-
-    <!-- ==============================================
-         2. TICKET SCREEN VIEW (100% Exact Screenshot)
-         ============================================== -->
-    <div id="ticket-view" class="app-view">
-      <div class="ticket-screen-container">
-        <div class="ticket-screen-inner">
-          <!-- 100% Screenshot Image -->
-          <img src="ticket-screen.png" alt="Ticket" class="ticket-screen-img">
-        
-        <!-- Interactive Hotspots on Ticket Screen -->
-        <!-- Back Arrow Button (Top-left) -->
-        <button class="ticket-hotspot hotspot-ticket-back" id="ticket-back-btn" aria-label="Go Back to Home"></button>
-
-        <!-- Gold - A (x5) Tab -->
-        <button class="ticket-hotspot hotspot-tab-gold" id="hotspot-tab-gold" aria-label="GOLD - A (x5)"></button>
-
-        <!-- VVIP - A (x1) Tab -->
-        <button class="ticket-hotspot hotspot-tab-vvip" id="hotspot-tab-vvip" aria-label="VVIP - A (x1)"></button>
-
-        <!-- Real Interactive 5-QR Horizontal Carousel -->
-        <div class="ticket-qr-carousel-wrapper" id="ticket-qr-carousel-wrapper">
-          <!-- Card Header Row: GOLD - A on left, Contact Icon + x 5 on right -->
-          <div class="ticket-card-header-row">
-            <span class="card-tier-title">GOLD - A</span>
-            <div class="card-pax-badge">
-              <svg class="pax-user-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0284c7" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <span class="pax-number">x 5</span>
-            </div>
-          </div>
-
-          <div class="qr-carousel-track" id="qr-carousel-track">
-            <!-- Slide 1 -->
-            <div class="qr-slide active-slide" data-index="1">
-              <div class="qr-card-inner">
-                <div class="qr-frame-box">
-                  <div class="qr-corners">
-                    <span class="qr-corner qr-tl"></span>
-                    <span class="qr-corner qr-tr"></span>
-                    <span class="qr-corner qr-bl"></span>
-                    <span class="qr-corner qr-br"></span>
-                  </div>
-                  <img class="qr-code-img" src="user_qr_snippet.png" alt="QR Code 1">
-                </div>
-                <div class="qr-meta-box">
-                  <div class="qr-counter">[1/5]</div>
-                  <div class="qr-qid">QID : PvUWv8</div>
-                  <div class="qr-booked">Booked on: Sun, Oct 18</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="qr-slide" data-index="2">
-              <div class="qr-card-inner">
-                <div class="qr-frame-box">
-                  <div class="qr-corners">
-                    <span class="qr-corner qr-tl"></span>
-                    <span class="qr-corner qr-tr"></span>
-                    <span class="qr-corner qr-bl"></span>
-                    <span class="qr-corner qr-br"></span>
-                  </div>
-                  <img class="qr-code-img" src="user_qr_snippet.png" alt="QR Code 2">
-                </div>
-                <div class="qr-meta-box">
-                  <div class="qr-counter">[2/5]</div>
-                  <div class="qr-qid">QID : PvUWv8</div>
-                  <div class="qr-booked">Booked on: Sun, Oct 18</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="qr-slide" data-index="3">
-              <div class="qr-card-inner">
-                <div class="qr-frame-box">
-                  <div class="qr-corners">
-                    <span class="qr-corner qr-tl"></span>
-                    <span class="qr-corner qr-tr"></span>
-                    <span class="qr-corner qr-bl"></span>
-                    <span class="qr-corner qr-br"></span>
-                  </div>
-                  <img class="qr-code-img" src="user_qr_snippet.png" alt="QR Code 3">
-                </div>
-                <div class="qr-meta-box">
-                  <div class="qr-counter">[3/5]</div>
-                  <div class="qr-qid">QID : PvUWv8</div>
-                  <div class="qr-booked">Booked on: Sun, Oct 18</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="qr-slide" data-index="4">
-              <div class="qr-card-inner">
-                <div class="qr-frame-box">
-                  <div class="qr-corners">
-                    <span class="qr-corner qr-tl"></span>
-                    <span class="qr-corner qr-tr"></span>
-                    <span class="qr-corner qr-bl"></span>
-                    <span class="qr-corner qr-br"></span>
-                  </div>
-                  <img class="qr-code-img" src="user_qr_snippet.png" alt="QR Code 4">
-                </div>
-                <div class="qr-meta-box">
-                  <div class="qr-counter">[4/5]</div>
-                  <div class="qr-qid">QID : PvUWv8</div>
-                  <div class="qr-booked">Booked on: Sun, Oct 18</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 5 -->
-            <div class="qr-slide" data-index="5">
-              <div class="qr-card-inner">
-                <div class="qr-frame-box">
-                  <div class="qr-corners">
-                    <span class="qr-corner qr-tl"></span>
-                    <span class="qr-corner qr-tr"></span>
-                    <span class="qr-corner qr-bl"></span>
-                    <span class="qr-corner qr-br"></span>
-                  </div>
-                  <img class="qr-code-img" src="user_qr_snippet.png" alt="QR Code 5">
-                </div>
-                <div class="qr-meta-box">
-                  <div class="qr-counter">[5/5]</div>
-                  <div class="qr-qid">QID : PvUWv8</div>
-                  <div class="qr-booked">Booked on: Sun, Oct 18</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Circular Nav Arrows matching the screenshot -->
-          <button class="qr-nav-arrow qr-nav-prev" id="qr-nav-prev" aria-label="Previous QR Code" style="display: none;">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          <button class="qr-nav-arrow qr-nav-next" id="qr-nav-next" aria-label="Next QR Code">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Get Directions Button -->
-        <a href="https://maps.google.com/?q=YASHVI+NAVRATRI+AC+Dome+CB+Patel+cricket+stadium+Vesu+canal+road+Abhva+Surat" target="_blank" rel="noopener" class="ticket-hotspot hotspot-directions" id="hotspot-directions" aria-label="Get Directions in Maps"></a>
-
-        <!-- Transfer Ticket Button -->
-        <button class="ticket-hotspot hotspot-transfer" id="hotspot-transfer" aria-label="Transfer Ticket"></button>
-
-        <!-- View Transferred Tickets Button -->
-        <button class="ticket-hotspot hotspot-view-transferred" id="hotspot-view-transferred" aria-label="View Transferred Tickets"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==============================================
-         3. MY ACCOUNT SCREEN VIEW (100% Exact Screenshot)
-         ============================================== -->
-    <div id="account-view" class="app-view">
-      <div class="account-screen-container">
-        <!-- 100% Screenshot Image -->
-        <img src="account-screen.jpg" alt="My Account" class="account-screen-img">
-        
-        <!-- Interactive Hotspots over Screenshot -->
-        <!-- Back Button (Arrow Top Left) -->
-        <button class="account-hotspot hotspot-back" id="account-back-btn" aria-label="Go Back to Home"></button>
-
-        <!-- Edit Profile -->
-        <button class="account-hotspot hotspot-edit-profile" id="hotspot-edit-profile" aria-label="Edit Profile"></button>
-
-        <!-- Menu Hotspots -->
-        <button class="account-hotspot hotspot-menu hotspot-bookings" id="hotspot-bookings" aria-label="My Bookings"></button>
-        <button class="account-hotspot hotspot-menu hotspot-classes" id="hotspot-classes" aria-label="Group Classes"></button>
-        <button class="account-hotspot hotspot-menu hotspot-khelaiya" id="hotspot-khelaiya" aria-label="Khelaiya"></button>
-        <button class="account-hotspot hotspot-menu hotspot-bookmarked" id="hotspot-bookmarked" aria-label="Bookmarked Events"></button>
-        <button class="account-hotspot hotspot-menu hotspot-help" id="hotspot-help" aria-label="Help Center"></button>
-        <button class="account-hotspot hotspot-menu hotspot-feedback" id="hotspot-feedback" aria-label="Share Feedback"></button>
-        <button class="account-hotspot hotspot-menu hotspot-privacy" id="hotspot-privacy" aria-label="Privacy Policy"></button>
-
-        <!-- Sign Out Hotspot -->
-        <button class="account-hotspot hotspot-menu hotspot-signout" id="hotspot-signout" aria-label="Sign Out"></button>
-
-        <!-- Footer Links Hotspots -->
-        <button class="account-hotspot hotspot-footer" id="hotspot-terms" aria-label="Terms and Conditions"></button>
-
-        <!-- Social Media Hotspots -->
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="account-hotspot hotspot-social hotspot-fb" aria-label="Facebook"></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="account-hotspot hotspot-social hotspot-insta" aria-label="Instagram"></a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="account-hotspot hotspot-social hotspot-yt" aria-label="YouTube"></a>
-        <a href="https://wa.me" target="_blank" rel="noopener" class="account-hotspot hotspot-social hotspot-wa" aria-label="WhatsApp"></a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Transfer Ticket Dialog Modal -->
-  <div id="transfer-modal" class="modal-backdrop" aria-hidden="true">
-    <div class="modal-sheet">
-      <div class="modal-drag-handle"></div>
-      <div class="modal-header">
-        <div class="modal-badge">YASHVI TRANSFER</div>
-        <button class="modal-close-btn" id="transfer-modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-content">
-        <h3 class="modal-event-title">Transfer Ticket</h3>
-        <p class="modal-presenter">Send GOLD - A pass to a friend via Mobile Number</p>
-        <div style="margin: 16px 0;">
-          <label style="font-size:12px; font-weight:700; color:#64748b; display:block; margin-bottom:6px;">RECIPIENT MOBILE NUMBER</label>
-          <input type="tel" id="transfer-mobile-input" placeholder="+91 98765 43210" style="width:100%; padding:14px; border:1px solid #cbd5e1; border-radius:12px; font-size:15px; font-family:inherit; outline:none;">
-        </div>
-        <button class="get-passes-btn" id="confirm-transfer-btn" style="width:100%;">Transfer Pass Now</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Account Details Info Modal (for bookings, classes, etc.) -->
-  <div id="account-info-modal" class="modal-backdrop" aria-hidden="true">
-    <div class="modal-sheet">
-      <div class="modal-drag-handle"></div>
-      <div class="modal-header">
-        <div class="modal-badge" id="account-modal-badge">YASHVI PASS</div>
-        <button class="modal-close-btn" id="account-modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-content">
-        <h3 class="modal-event-title" id="account-modal-title">My Bookings</h3>
-        <div class="account-modal-body" id="account-modal-body">
-          <!-- Dynamic Content -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PWA Install Sheet Modal (Shows on open in browser for iPhone & Android) -->
-  <div id="pwa-install-modal" class="pwa-install-backdrop" aria-hidden="true" style="display: none;">
-    <div class="pwa-install-sheet">
-      <button class="pwa-close-btn" id="pwa-close-btn" aria-label="Close">&times;</button>
-      
-      <!-- Android / Standard Chrome Install Content -->
-      <div id="pwa-android-content" class="pwa-sheet-body">
-        <div class="pwa-app-row">
-          <img src="icon-192.png" alt="YASHVI Logo" class="pwa-app-icon">
-          <div class="pwa-app-meta">
-            <h4 class="pwa-app-title">YASHVI</h4>
-            <p class="pwa-app-sub">Official Navratri Passes & Events</p>
-            <span class="pwa-app-badge">✓ Free • Instant Install</span>
-          </div>
-        </div>
-        <p class="pwa-app-desc">Install YASHVI on your phone for quick full-screen access to your event tickets and QR passes.</p>
-        <div class="pwa-action-row">
-          <button class="pwa-install-btn" id="pwa-confirm-install-btn">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Install YASHVI App</span>
-          </button>
-          <button class="pwa-dismiss-btn" id="pwa-dismiss-btn">Continue in Browser</button>
-        </div>
-      </div>
-
-      <!-- iPhone / iOS Safari Install Guide Content -->
-      <div id="pwa-ios-content" class="pwa-sheet-body" style="display: none;">
-        <div class="pwa-app-row">
-          <img src="icon-192.png" alt="YASHVI Logo" class="pwa-app-icon">
-          <div class="pwa-app-meta">
-            <h4 class="pwa-app-title">Install YASHVI on iPhone</h4>
-            <p class="pwa-app-sub">Install in 2 quick steps</p>
-          </div>
-        </div>
-        <div class="ios-steps-container">
-          <div class="ios-step-item">
-            <span class="step-num">1</span>
-            <div class="step-text">
-              Tap the <strong>Share</strong> button 
-              <span class="ios-inline-icon">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#007aff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                  <polyline points="16 6 12 2 8 6"></polyline>
-                  <line x1="12" y1="2" x2="12" y2="15"></line>
-                </svg>
-              </span>
-              at the bottom of Safari.
-            </div>
-          </div>
-          <div class="ios-step-item">
-            <span class="step-num">2</span>
-            <div class="step-text">
-              Scroll down and tap <strong>Add to Home Screen</strong> <span class="ios-inline-icon">➕</span>.
-            </div>
-          </div>
-          <div class="ios-step-item">
-            <span class="step-num">3</span>
-            <div class="step-text">
-              Tap <strong>Add</strong> at top right to complete install!
-            </div>
-          </div>
-        </div>
-        <div class="pwa-action-row">
-          <button class="pwa-install-btn" id="pwa-ios-done-btn">Got It!</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>

@@ -1,30 +1,18 @@
-const CACHE_NAME = 'yashvi-pwa-v14';
+const CACHE_NAME = 'yashvi-404-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './styles.css',
+  './404.html',
   './app.js',
-  './manifest.json',
-  './icon.png',
-  './icon-192.png',
-  './icon-512.png',
-  './icon-maskable-192.png',
-  './icon-maskable-512.png',
-  './apple-touch-icon.png',
-  './logo.png',
-  './launch-screen.png',
-  './hero-content.png',
-  './sponsors-full.png',
-  './account-screen.jpg',
-  './ticket-screen.png',
-  './user_qr_snippet.png'
+  './manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS_TO_CACHE);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -42,7 +30,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Network-first strategy: always fetch freshest content when online, fallback to cache offline
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(event.request)
@@ -55,6 +42,6 @@ self.addEventListener('fetch', (event) => {
         }
         return networkResponse;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => caches.match('./index.html') || caches.match('./') || caches.match(event.request))
   );
 });
