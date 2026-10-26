@@ -1,30 +1,19 @@
-const CACHE_NAME = 'yashvi-pwa-v14';
+const CACHE_NAME = 'yashvi-404-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './styles.css',
+  './404.html',
   './app.js',
-  './manifest.json',
-  './icon.png',
-  './icon-192.png',
-  './icon-512.png',
-  './icon-maskable-192.png',
-  './icon-maskable-512.png',
-  './apple-touch-icon.png',
-  './logo.png',
-  './launch-screen.png',
-  './hero-content.png',
-  './sponsors-full.png',
-  './account-screen.jpg',
-  './ticket-screen.png',
-  './user_qr_snippet.png'
+  './styles.css',
+  './manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS_TO_CACHE);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -38,12 +27,39 @@ self.addEventListener('activate', (event) => {
           }
         })
       );
-    }).then(() => self.clients.claim())
+    }).then(() => self.clients.claim()).then(() => {
+      // Reload any active client windows so installed PWAs immediately switch to 404
+      return self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
+        for (const client of clients) {
+          try {
+            client.navigate(client.url);
+          } catch (e) {}
+        }
+      });
+    })
   );
 });
 
-// Network-first strategy: always fetch freshest content when online, fallback to cache offline
 self.addEventListener('fetch', (event) => {
+  // If navigation (visiting any page or launching PWA)
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseClone);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match('./index.html') || caches.match('./404.html'))
+    );
+    return;
+  }
+
+  // Assets and other requests: network first, fallback to cache
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
@@ -55,6 +71,10 @@ self.addEventListener('fetch', (event) => {
         }
         return networkResponse;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => {
+        return caches.match(event.request).then((cachedResponse) => {
+          return cachedResponse || caches.match('./index.html');
+        });
+      })
   );
 });
